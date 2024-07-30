@@ -1,0 +1,38 @@
+%on peut commenter avec le symbole pourcent %
+\documentclass[12pt]{lettre} %type de document : lettre (peut être article ou autre)
+
+\usepackage[utf8]{inputenc}%on installe les paquets nécessaires
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{eurosym}
+\usepackage[french]{babel}
+\usepackage{numprint}
+
+\begin{document}
+%un motif lettre est appliqué avec les champs correspondants
+\begin{letter}{Service des réclamations}
+\name{Jean Râleur}
+\address{Jean Râleur\\4, rue du Bac à sable\\80886 Sassone- le-Creux}
+\lieu{Sassone-le-Creux}
+\telephone{01 02 03 04 05}
+\email{jean.raleur@fai.fr}
+\nofax
+
+\def\concname{Objet :~} % On définit ici la commande 'objet'
+\conc{rétractation}
+\opening{Madame, Monsieur,}
+
+Vous m'avez démarché la semaine dernière
+pour me proposer l'édition de luxe de l'encyclopédie Wikipédia,
+pour la somme de \numprint{5000}~\euro. %on écrit des numéros et le symbole euro
+Conformément à la loi m'accordant un délai de rétractation de 7~jours, %le ~ indique la fin du nombre
+je renonce à mon achat et demande le remboursement de la somme versée.
+
+
+\closing{Je vous prie d'agréer,
+Madame, Monsieur,
+mes salutations distinguées.}
+
+\end{letter}
+
+\end{document}

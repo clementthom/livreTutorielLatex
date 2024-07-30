@@ -1,0 +1,38 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[french]{babel}
+
+\begin{document}
+\emph{texte} %italique
+Salut princesse!
+{\em T'as bien dormi ?} %italique
+
+%Les caractères { } % # $ ^ ~ & _ \ sont réservés
+
+On peut de même écrire les \{caractères spéciaux\} avec un antislash \textbackslash.
+Pour faire un \textasciicircum, il faut écrire \textbackslash textasciicircum.
+Pour faire un \textbackslash, il faut écrire \textbackslash textbackslash.
+Pour faire un tilde \textasciitilde, il faut écrire \textbackslash textasciitilde.
+
+%un saut de ligne dans le .ext effectue un retour à la ligne dans le pdf
+%plusieurs sauts de lignes ne créent pas de saut de ligne dans le document
+Voici des exemples pour placer des caractères spéciaux issus de lettres : 
+
+\'e (\'ecrit \textbackslash 'e)
+
+\`e (\'ecrit \textbackslash `e, altgr 7)
+
+\^\i  (\'ecrit \textbackslash  \^{}\textbackslash  i) % les {} permettent de fermer l'instruction ^
+
+D'autres caractères spéciaux (cédille, tréma, \oe , ...) peuvent être trouvé en suivant ce lien :
+
+https:\textbackslash\textbackslash fr.wikibooks.org\textbackslash wiki\textbackslash LaTeX\textbackslash \'Eléments\_de\_base
+% ne pas mettre d'espace après les \_
+
+Il faudra supprimer l'espace apparu avant le :, je n'ai pas trouvé de moyen pour le faire disparaître.
+On peut aussi créer plusieurs types d'espaces (avec chacun une longueur différente).
+
+\end{document}

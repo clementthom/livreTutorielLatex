@@ -1,0 +1,131 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[french]{babel}
+\usepackage{cite}
+
+\begin{document}
+
+\part{Choix de la police}
+\section{Choix de la forme}
+On peut appliquer de nombreux styles à un texte. Il en existe deux types : la forme (italique ou souligné par exemple) ou la graisse (en gras).
+
+\subsection{La forme}
+
+\begin{itemize}
+
+\item \textit{italique}, avec la commande \textbackslash textit\{\},  (il existe d'autres commandes).
+\item \textsl{penché}, avec la commande \textbackslash textsl\{\}
+\item \underline{soutitrage}, avec la commande \textbackslash underline
+\item \emph{emphase}, qu'on connaît déjà très bien
+\item \oldstylenums{40}, pous les chiffres bas de casse, avec la commande \textbackslash oldstrylenums\{\}
+\item \textsc{lettres en petites capitales}, avec la commande \textbackslash textsc\{\} (utilisées notamment pour les noms et les chiffres romains). A noter que pour avoir des noms qui ne sont pas coupés en fin de lignes, on peut utiliser la commande \textbackslash bsc\{\}
+
+\end{itemize}
+ Des cas d'utilisation pour chacun de ces styles sont précisés au chapitre 7 du cours \LaTeX sur Wikiversité.
+
+\subsection{La graisse}
+
+\begin{itemize}
+
+\item \textnormal{texte normal}, avec  la commande \textbackslash textnormal
+\item \textbf{graisse moyenne}, avec la commande \textbackslash \{textbf\} (il existe d'autres commandes)
+
+\end{itemize}
+
+\section{Choix de la police et du corps}
+\subsection{Choix de la police}
+Il y a plusieurs types de police (on parle ici de types et non de polices à proprement parler :
+
+\begin{itemize}
+
+\item \textrm{police à empattement}, avec la commande \textbackslash textrm\{\} (type par défaut, rm pour roman)
+\item \textsf{police sans empattement}, avec la commande \textbackslash textsf\{\}(sf pour sans serif)
+\item \texttt{police machine à écrire}, avec la commande \textbackslash text\{\}(tt pour teletype)
+\item \textnormal{texte normal}, avec la commande \textbackslash textnormal\{\} (fonte de corps du document)
+
+\end{itemize}
+
+\textit{\textbf{Notes :}} Si on ne précise par \textit{text}, on ne met pas fin à l'instruction : le texte qui suit sera aussi affecté.
+Comme précédemment, on peut activer ces types de différentes façons (\textbackslash begin\{\} \textbackslash end\{\} par exemple). Enfin, habituellement, on utilise une seule police au sein d'un document.
+
+\pagebreak %youpi, celui-là fonctionne
+
+\subsection{Choix du corps}
+
+\begin{itemize}
+
+\item {\footnotesize texte très petit}, avec la commande \textit{\{\textbackslash footnotesize ...\}}
+\item {\small texte petit}, avec la commande \textit{\{\textbackslash small ...\}}
+\item {\large texte grand}, avec la commande \textit{\{\textbackslash large ...\}}
+\item {\Large texte très grand}, avec la commande \textit{\{\textbackslash Large ...\}}
+
+\end{itemize}
+
+Encore une fois, il existe plusieurs façons de changer la taille de la police, notamment avec un \textit{\textbackslash begin\{\})}. Le texte en \textit{petit} est celui utilisé par défaut.
+
+\section{Composition du texte et tabulations}
+\subsection{La composition du texte}
+
+\begin{itemize}
+
+\item En mettant la commande \textit{\textbackslash noindent} au début d'un paragraphe, on peut annuler l'insertion d'un alinéa
+\item Pour aligner le texte à gauche, on utilise le balisage \textit{\textbackslash begin\{flushleft\} \textbackslash end\{flushleft\}}
+\item Pour aligner le texte à droite, on utilise le balisage \textit{\textbackslash begin\{flushright\} \textbackslash end\{flushright\}}
+\item Pour aligner le texte au centre, on utilise le balisage \textit{\textbackslash begin\{center\} \textbackslash end\{center\}}
+
+\end{itemize}
+
+Par ailleurs, on peut faire un retour à la ligne avec un \textit{\textbackslash \textbackslash}, et d'utiliser {\textbackslash begin\{quote\}}en balisage pour créer une citation. Enfin, on utilise \textit{\textbackslash bsc\{...\}} pour invoquer un rôle dans le texte d'une pièce de théâtre. Voici un exemple : 
+
+Si l'on considère ce passage de \emph{L'\'Ecole des femmes}~:
+
+\small
+
+\begin{center} 
+   \bsc{Chrysalde} 
+\end{center} 
+
+\begin{quote} 
+   Nous sommes ici seuls, et l'on peut, ce me semble, \\
+   Sans craindre d'être ouïs y discourir ensemble. \\
+   Voulez-vous qu'en ami je vous ouvre mon c\oe{}ur~? \\
+   Votre dessein, pour vous, me fait trembler de peur~; \\
+   Et de quelque façon que vous tourniez l'affaire, \\
+   Prendre femme est à vous un coup bien téméraire.
+\end{quote} 
+
+\normalsize
+
+\subsection{La tabulation}
+
+Les tabulations permettent de créer graphiquement ce qui peut s'apparenter à des tableaux. On les utilise à l'aide de l'environnement \textit{tabbing}. 
+
+\begin{itemize}
+
+\item On utilise \textit{\textbackslash qquad} pour changer de colonne sur la première ligne (les labels)
+\item On change de ligne avec \textit{\textbackslash \textbackslash}
+\item On utlise \textbackslash \= pour définir les taquets de tabulation (les cellules) après \textbackslash qquad
+\item On utilise \textbackslash > pour aller au taquet suivant
+\item Si on ne veut pas qu'une ligne s'affiche, on utilise la commande \textit{\textbackslash kill}
+
+\end{itemize}
+
+Voici un exemple :
+
+\begin{tabbing}
+Quantité \qquad \= Valeur \qquad  \= Total \\
+1 \> 5 \> 5 \\
+4 \> 6 \> 24
+\end{tabbing}
+
+\`A noter qu'on ne peut pas changer la disposition d'un tel tableau : il sera toujours mis à gauche.
+
+\section{Commandes personnelles et lien avec d'autres fichiers}
+
+On peut faire des commandes personnalisées (ici une abbréviation) avec \textit{\textbackslash new command\{\textbackslash nom de la  commande\}\{contenu affiché par la commande qui peut contenir des effets comme italique\}}. \\
+Pour importer les commandes d'un autre fichier on peut utiliser la commande \textit{\textbackslash input\{fichier.tex\}} juste avant le début du document. Cela peut être extrêmement pratique : par exemple, plus besoin de faire une série de \emph{\textbackslash usepackage}, on les rassemble tous dans un document et tout est directement insérer dans le fichier actuel.
+
+\end{document}

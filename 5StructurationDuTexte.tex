@@ -1,0 +1,161 @@
+\documentclass[a4paper,  10pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[french]{babel}
+\usepackage{cite}
+
+
+\begin{document}
+
+\frontmatter %déclare la couverture, que pour les livres
+
+\title{La structuration des documents en LaTeX}
+\author{Clément THOMAS}
+\date{Le 18 juin 2024}
+
+\mainmatter %on est dans le corps du document
+
+\part{Les commandes LaTex pour structurer un texte}
+\chapter*{Introduction}
+Pour faire un chapitre (ou quoi que ce soit d'ailleurs) sans précisions (pas de \em chapitre 1\em   ou similaire), on rajoute une * après chapter.
+
+\chapter{La structure d'un document}
+\section{Listes des instructions}
+Voici la hérarchie d'un texte : 
+\begin{itemize}
+
+\item 1 : Partie : la commande est \textbackslash part\{nom de la partie\} .
+\item 2 : Chapitre (n'existe pas avec \em article\em) : la commande est \textbackslash chapter\{nom du chapitre\}
+\item 3 : Section : la commande est \textbackslash section\{nom de la section\}
+\item 4 : Sous-section : la commande est \textbackslash subsection\{nom de la sous-section\}
+\item 5 : Sous-sous-section : la commande est \textbackslash subsubsection\{nom de la sous-sous-section\}
+\item 6 : Paragraphe : la coommande est \textbackslash paragraph\{titre du paragraphe\}
+\item 7 : Sous-paragraphe la commande est \textbackslash subparagraph\{titre du sous-paragraphe\}
+
+\end{itemize}
+\section{Notes importantes}
+\begin{itemize}
+
+\item Les chapitres n'existent que dans les livres, ce qui parait logique : pas de chapitres dans un article.
+\item Par convention françaisej, la table des matières est placée à la fin du document (écrite\em\textbackslash tableofcontents\em).
+\item Pour les classe \em article \em et \em report \em , on a un duo supplémentaire pour faire un abstract. Il s'écrit de la même manière que par exemple \em itemize \em : \textbackslash begin\{abstract\} blablabla \textbackslash end\{abstract\} .
+\item Il faut compiler deux fois pour que la table des matières se mette à jour.
+\item Pour écrire en italique (emphase), il faut employer la syntaxe : \textbackslash emph\{texte\}.
+
+\end{itemize}
+
+\nopagebreak
+
+\chapter{La structure du texte}
+\section{Le saut de page}
+Insérer un saut de page est assez simple. En effet il est gérer automatiquement par \LaTeX . En revanche, on peut lui indiquer nos préférences, que ce soit pour sauter une page avec \em \textbackslash pagebreak\em (insérer saut de page) , ou au contraire pour ne pas sauter une page avec\em \textbackslash nopagebreak\em .
+
+\section{Listes, imbrications et descriptions}
+\subsection{Les listes numérotées}
+
+La liste numérotée utilise une syntaxe type \emph{\textbackslash begin\{\}}, avec entre les accolades \emph{enumerate} et des \emph{item}.
+Voici un exemple :
+\begin{enumerate}
+
+\item premier item
+\item deuxième item
+
+\end{enumerate}	
+
+\subsection{Les listes non numérotées}
+
+C'est la même chose pour les listes non numérotées, mais on entre \emph{itemize} au lieu de \emph{enumerate}.
+\begin{itemize}
+
+\item première partie
+\item deuxième partie
+
+\end{itemize}
+
+\subsection{Les descriptions}
+
+L'environnement \emph{description} permet d'associer une définition à un terme (un environnement commence par \textbackslash begin\{\} et se termine par \textbackslash end\{\}.  
+En plus d'écrire \emph{item}, on ajoute entre crochets le nom du terme qu'on souhaite associer à une définition. Le résultat est ceci :
+\begin{description}
+
+\item[die Entdeckung] : La découverte
+\item[das Gehirn] : le cerveau
+
+\end{description}
+
+
+
+\subsection{Les imbrications}
+
+Juste pour dire qu'on peut inclure des listes dans des listes.
+
+\section{Notes et sources dans le document}
+\subsection{Notes de bas de page}
+
+Pour créer une note de bas de page \footnote{Comme ici.}, on entre la commande \emph{\textbackslash footnote} devant le mot à annoter. 
+
+\subsection{Références}
+
+On veut parfois faire référence à quelque chose déjà mentionné dans le texte. Pour cela, on utilise deux commandes : 
+\begin{itemize}
+
+\item On écrit \emph{\textbackslash label\{étiquette\}} à l'endroit que l'on prend comme référence
+\item On écrit \emph{\textbackslash ref\{étiquette\}} pour obtenir la position de l'étiquette dans le document (voir exemple)
+\item On écrit \emph{\textbackslash pageref\{étiquette\}} pour obtenir le numéro de la page où est située l'étiquette.  
+
+\end{itemize}
+
+À noter que si l'étiquette n'a pas été déclarée et a été appelée, ou qu'elle est déclarer à plusieurs reprises, une erreur sera retournée.
+
+Voici un exemple d'utilisation d'étiquette :
+
+Les points forts de \LaTeX{} sont~:\label{points-forts}
+[…]
+Comme relevé précédemment (section~\ref{points-forts} p.~\pageref{points-forts}), […]
+
+\chapter{Citation de documents externes}
+\section{Fichier de bibliographique}
+
+On fait appel à un fichier de référence, qui contient les informations des livres/articles concernés. Voici un éxemple de la rédaction d'informations d'un livre :
+
+\% ***** livres *****
+
+@book\{VER1875,
+
+   author="Verne, Jules",
+
+   title="Michel \{Strogoff\}",
+
+   year="1875",
+
+   publisher="Le livre de poche"
+\}
+
+A noter qu'on créer un fichier spécial (un répertoire) où on dispose toutes les références bibliographiques. Ce fichier est un fichier de type \emph{.bib}, qu'on a pas besoin de lier avec le fichier \emph{.tex}. 
+
+\section{Référencer des documents}
+
+Il y a deux façons de citer un ouvrage 
+\begin{itemize}
+
+\item \textbackslash \emph{cite\{VER1875\}}, passé à côté de la citation
+\item \textbackslash \emph{nocite\{VER1875\}}, lorsqu'on ne cite pas explicitement le document externe dans le texte. A noter qu'il est préférable de placer ces \oe uvres juste avant \emph{\textbackslash backmatter}
+
+\end{itemize}
+
+Voici un exemple :
+
+Ainsi, Jules Verne faisait dire à Wassili Fédor \cite{VER1875} : (bon, là ça ne marche pas).
+
+
+\backmatter % on est au niveau de la table des matières et des index
+
+\bibliographystyle{plain-fr}
+\bibliography{mabiblio}
+
+\tableofcontents
+
+\end{document}
+

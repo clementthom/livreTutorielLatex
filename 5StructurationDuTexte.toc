@@ -1,0 +1,18 @@
+\babel@toc {french}{}\relax 
+\contentsline {part}{I\hspace {1em}Les commandes LaTex pour structurer un texte}{1}{}%
+\contentsline {chapter}{\numberline {1}La structure d'un document}{5}{}%
+\contentsline {section}{\numberline {1.1}Listes des instructions}{5}{}%
+\contentsline {section}{\numberline {1.2}Notes importantes}{5}{}%
+\contentsline {chapter}{\numberline {2}La structure du texte}{7}{}%
+\contentsline {section}{\numberline {2.1}Le saut de page}{7}{}%
+\contentsline {section}{\numberline {2.2}Listes, imbrications et descriptions}{7}{}%
+\contentsline {subsection}{\numberline {2.2.1}Les listes numérotées}{7}{}%
+\contentsline {subsection}{\numberline {2.2.2}Les listes non numérotées}{7}{}%
+\contentsline {subsection}{\numberline {2.2.3}Les descriptions}{7}{}%
+\contentsline {subsection}{\numberline {2.2.4}Les imbrications}{8}{}%
+\contentsline {section}{\numberline {2.3}Notes et sources dans le document}{8}{}%
+\contentsline {subsection}{\numberline {2.3.1}Notes de bas de page}{8}{}%
+\contentsline {subsection}{\numberline {2.3.2}Références}{8}{}%
+\contentsline {chapter}{\numberline {3}Citation de documents externes}{9}{}%
+\contentsline {section}{\numberline {3.1}Fichier de bibliographique}{9}{}%
+\contentsline {section}{\numberline {3.2}Référencer des documents}{9}{}%
