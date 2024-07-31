@@ -449,7 +449,22 @@ Pour rappel, voici les positions différentes proposées : \\ \\
 \item \texttt{p} pour la mettre dans une page de flottants
 \end{itemize}
 
-\textsc{notes :}\LaTeX tient compte des règles internes de mise en page en priorité pour positionner une image. Pour forcer le positionnement d'une image, il faut précéder la lettre de position par un \textbf{!} (par exemple \textit{[!h]}. \\ On peut aussi insérer une légende, comme avec les tableaux.
+\textsc{notes :}\LaTeX tient compte des règles internes de mise en page en priorité pour positionner une image. Pour forcer le positionnement d'une image, il faut précéder la lettre de position par un \textbf{!} (par exemple \textit{[!h]}. \\ On peut aussi insérer une légende, comme avec les tableaux. De la même façon, on peut utiliser la commande \textit{\textbackslash cleardoublepage} pour forcer un changement de page.\\ \\
+Enfin, on peut inclure la liste des images avec la commande \textit{\textbackslash listoffigures}, grâce à l'extension \texttt{tocbibind} :
+
+\begin{figure}[h]
+\caption{\label{Image1} image utilisée pour la matière Méthodes Numériques (2ème année)}
+\includegraphics{grapheHV}
+\end{figure}
+
+\listoffigures
+
+\section{dessiner avec LaTeX}
+
+\chapter{Les options de mise en forme avancées}
+\section{Césure}
+Une césure est une coupure d'un mot en deux lignes afin de respecter la justification et le gris typographique; elle est gérée automatiquement par \LaTeX. Il arrive cependant que la césure générée ne soit pas correcte (mot composé par exemple). \\
+Pour générer manuellement 
 
 \backmatter
 
