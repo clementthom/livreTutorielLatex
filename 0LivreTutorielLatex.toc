@@ -46,3 +46,19 @@
 \contentsline {section}{\numberline {7.2}Taille de l'image}{22}{}%
 \contentsline {section}{\numberline {7.3}Encadrement}{22}{}%
 \contentsline {section}{\numberline {7.4}Figure flottante}{22}{}%
+\contentsline {section}{\numberline {7.5}dessiner avec LaTeX}{25}{}%
+\contentsline {chapter}{\numberline {8}Les options de mise en forme avancées}{27}{}%
+\contentsline {section}{\numberline {8.1}Césure}{27}{}%
+\contentsline {section}{\numberline {8.2}Lettrine (enluminure)}{27}{}%
+\contentsline {section}{\numberline {8.3}Les couleurs}{28}{}%
+\contentsline {subsection}{\numberline {8.3.1}Colorer les caractères - couleurs disponibles}{28}{}%
+\contentsline {subsection}{\numberline {8.3.2}Utilisation conventionnelle}{28}{}%
+\contentsline {subsection}{\numberline {8.3.3}Cadre et couleur de fond}{29}{}%
+\contentsline {subsection}{\numberline {8.3.4}Modèles de couleurs}{29}{}%
+\contentsline {section}{\numberline {8.4}Interligne}{30}{}%
+\contentsline {subsection}{\numberline {8.4.1}\'Ecrire en colonne\\}{31}{}%
+\contentsline {subsection}{\numberline {8.4.2}Travailler avec plusieurs langues\\}{31}{}%
+\babel@toc {english}{}\relax 
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {8.5}Ajout d'un sommaire\\}{31}{}%
+\contentsline {chapter}{\numberline {9}\'Ecrire des mathématiques en LaTeX}{33}{}%
