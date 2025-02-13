@@ -1,0 +1,80 @@
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024 Solus) (preloaded format=xelatex 2024.7.13)  10 NOV 2024 01:44
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**0LivreTutorielLatex
+(./0LivreTutorielLatex.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+(/usr/share/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+
+/usr/share/texmf-dist/tex/latex/base/bk10.clo:54: Font TU/lmr/m/n/10=[lmroman10-regular]:mapping=tex-text; at 10.0pt not loadable: Metric (TFM) file or installed font not found.
+<to be read again> 
+                   relax 
+l.54 \normalsize
+                
+I wasn't able to read the size data for this font,
+so I will ignore the font specification.
+[Wizards can fix TFM files using TFtoPL/PLtoTF.]
+You might try inserting a different font spec;
+e.g., type `I\font<same font id>=<substitute font name>'.
+
+)
+\c@part=\count184
+\c@chapter=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 112.
+LaTeX Font Info:    No file T1lmr.fd. on input line 112.
+
+
+LaTeX Font Warning: Font shape `T1/lmr/m/n' undefined
+(Font)              using `T1/cmr/m/n' instead on input line 112.
+
+)
+
+! LaTeX Error: File `lmodern.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+./0LivreTutorielLatex.tex:5: Emergency stop.
+<read *> 
+         
+l.5 \usepackage
+               {graphicx}^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 510 strings out of 474773
+ 5539 string characters out of 5747043
+ 1917839 words of memory out of 5000000
+ 22746 multiletter control sequences out of 15000+600000
+ 558832 words of font info for 37 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 36i,0n,44p,159b,73s stack positions out of 5000i,500n,10000p,200000b,100000s
+No pages of output.

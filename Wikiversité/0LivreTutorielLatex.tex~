@@ -1,0 +1,1019 @@
+\documentclass[a4paper, 10pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[english, french]{babel} %babel est à placer en dernier
+\usepackage{cite} %pour faire des citations
+\usepackage{amsmath, amsfonts, amssymb} %pour afficher des objets mathématiques et les symboles supérieur/ égal à (et autres caractères mathématiques particuliers)
+\usepackage{lettrine} %pour gérer les lettrines
+\usepackage{oldgerm} %pour afficher des lettrines de style gothique
+\usepackage{xcolor} %pour colorer le texte
+\usepackage{setspace} %pour changer la taille de l'interlignage
+\usepackage[tight]{shorttoc} %pour générer un sommaire
+%\usepackage{textgreek} %pour afficher des caractères grecques
+%\usepackage[upright]{fourier}% pour avoir les variables mathématiques capitales en romain
+\usepackage{amsfonts} %pour afficher les caractères correspondants aux ensembles mathématiques
+
+
+\begin{document}
+
+\frontmatter
+
+\title{Tutoriel LaTeX - D'après Wikiversité}
+\author{Clément Thomas}
+\date{Le 5 juillet 2024}
+\maketitle
+
+\shorttoc{Sommaire}{4}
+
+\mainmatter
+
+\chapter{La classe Lettre}
+La lettre est créée dans un environnement \textbf{letter}\{titre de la lettre\}. On peut alors commencer à renseigner les informations de l'auteur : \\ \\
+
+\begin{itemize}
+\item \textit{\textbackslash name\{nom de l'auteur\}}
+\item \textit{\textbackslash adress\{nom de l'auteur\textbackslash \textbackslash adresse de l'auteur\textbackslash \textbackslash commune de l'adresse\}}
+\item \textit{\textbackslash lieu\{ville de l'auteur\}}
+\item \textit{\textbackslash téléphone\{00 00 00 00 00\}}
+\item \textit{\textbackslash email\{coucou@gamil.fr\}}
+\item \textit{\{\textbackslash fax\{adressedefax\}}
+\item \textsc{note} : on peut choisir de ne pas afficher un champ en rajoutant \textit{no} devant une commande (ex : \textit{\textbackslash nofax})\\ \\
+\end{itemize}
+
+Le contenu de la lettre est composé lui aussi de plusieurs parties :\\
+
+\begin{enumerate}
+\item \textit{\textbackslash conc\{rétractation\}} pour définir le sujet de la lettre
+\item \textit{\textbackslash opening\{Madame, Monsieur,\}} pour faire une ouverture pour la lettre
+\item \textit{\textbackslash closing\{Je vous prie d'agréer, Madame, Monsieur,
+mes salutations distinguées.\}} pour clore la lettre.\\ \\
+\end{enumerate}	
+
+ \textsc{note :} on entre le corps du texte entre l'ouverture et la conclusion.
+
+\chapter{Les caractères spéciaux et les caractères réservés}
+\section{Les caractères réservés}
+
+Les caractères réservés de \LaTeX sont \textbf{\{\}  \%  \# \$ \^,  \~ , \&  \_} et \textbf{\textbackslash} : ils servent à exécuter des commandes (ex : \textbackslash pour presque toutes les commandes, \% pour les commentaires).
+
+\section{Les caractères spéciaux}
+
+Les caractères spéciaux sont en vérité une combinaison de plusieurs caractères; par exemple, pour écrire le caractère \textbf{"À"}, il suffit de combiner \textbf{"A"} avec \textbf{"`"}, de la manière suivante : \textit{\textbackslash `A}. Bien entendu, si ce type de caractère spécial est écrit dans sa forme définitive dans le fichier \LaTeX, cela devrait aussi l'afficher correctement.\\ 
+Pour les caratères rassemblant plusieurs lettres, comme \textbf{\oe}, la méthode est la même.\\\\
+Enfin, il existe une multitude d'autres caractères spéciaux (comme les symboles mathématiques), dont on peut facilement retrouver les commandes sur Internet. \\ \\ \\
+\textsc{note :} on peut notamment créer des espaces de taille différente.
+
+\chapter{Les classes}
+\section{Différents types de classe et généralités}
+La première chose à définir dans un document \LaTeX est la classe du document. On la définie avec la commande \textit{\textbackslash documentclass[options]\{classe\}}.\\
+Voici les différents types de documents les plus utilisés : 
+
+\begin{itemize}
+\item \textbf{article} : pour les articles destinés à la publication et ne contenant que quelques pages.
+\item \textbf{report} : pour des documents un peu plus long contenant plusieurs chapitres, comme des mémoires de thèse.
+\item \textbf{book} : pour de véritables livres, de plusieurs centaines de pages.
+\item \textbf{slides} : pour faire des présentations sur transparents.
+\item \textbf{beamer} : pour faire des présentations en utilisant l'extension \texttt{beamer} (recommandé par Wikiversité).
+\item \textbf{lettre} : pour faire des lettres au format français (classe écrite par l'Observatoire de Genève).
+\item \textbf{memoir} : pour écrire des mémoires, par exemple de fin d'étude.
+\end{itemize}
+Ceci est une liste non exhaustive, d'autres classes sont disponibles en fonction de différents besoins (non officielles).\\
+
+\textsc{note :} Le contenu du champ \texttt{options} s'écrit sous la forme \textit{[taille de la feuille, taille de la police]}. Par exemple on peut mettre \textbf{a4paper} à la place de \textit{taille de la feuille} ou encore \textbf{10pt} au lieu de \textit{taille de la police}.
+
+\section{Les classes \textit{article} et \textit{book}}
+\subsection{La classe \textit{book}}
+
+La couverture comporte 3 informations :
+
+\begin{itemize}
+\item \textit{\textbackslash title\{nom du livre\}}
+\item \textit{\textbackslash author\{nom de l'auteur\}}
+\item \textit{\textbackslash date\{date d'aujourd'hui\}}\\
+\end{itemize}
+
+\pagebreak
+Ces informations sont placées avant le début du document. 
+Dans l'environnement \textbf{document}, on utilise la commande \textit{\textbackslash}, ce qui permet de générer la page de couverture.
+On utilise aussi la commande \textit{\textbackslash tableofcontents} pour créer une table des matières. Celle-ci sera placée à la fin du document.
+
+\subsection{La classe \textit{article}}
+
+L'article est la classe privilégié pour les textes destinés à être publiés : ils sont optimisés pour citer plusieurs auteurs. Cette classe a ainsi les champs suivants :
+
+\begin{itemize}
+\item \textit{\textbackslash title\{titre\}}
+\item \textit{\textbackslash author\{auteur principal\}}
+\item \textit{\textbackslash and}, pour ajouter des auteurs. On les ajoute après la commande, sans accolades.
+\item \textit{\textbackslash date\{date d'aujourd'hui\}}
+\end{itemize}
+
+\chapter{Structure du document et du texte}
+\section{Structure du texte}
+\subsection{Liste des instructions}
+Voici la hiérarchie d'un texte : 
+
+\begin{enumerate}
+\item \textbf{Partie} : la commande est \textit{\textbackslash part\{nom de la partie\}}
+\item \textbf{Chapitre} (n'existe pas avec article) : la commande est \textit{\textbackslash chapter\{nom du chapitre\}}
+\item \textbf{Section} : la commande est \textit{\textbackslash section\{nom de la section\}}
+\item \textbf{Sous-section} : la commande est \textit{\textbackslash subsection\{nom de la sous-section\}}
+\item \textbf{Sous-sous-section} : la commande est \textit{\textbackslash subsubsection\{nom de la sous-sous-section\}}
+\item \textbf{Paragraphe} : la commande est \textit{\textbackslash paragraph\{titre du paragraphe\}}
+\item \textbf{Sous-paragraphe} : la commande est \textit{\textbackslash subparagraph\{titre du sous-paragraphe\}}
+\end{enumerate}
+
+\subsection{Notes importantes concernant la structure d'un document}
+
+\begin{itemize}
+\item Les chapitres n'existent que dans les livres, ce qui parait logique : pas de chapitre dans un article.
+\item Par convention française, la table des matières est placée à la fin du document : l'instruction correspondante est \textit{\textbackslash tableofcontents}.
+\item Pour les classes \textit{article} et \textit{report}, on a un environnement supplémentaire pour faire un abstract : \textbf{abstract}.
+\item Il faut compiler deux fois pour que la table des matières se mette à jour.
+\item Pour écrite en emphase, il faut employer la syntaxe \textit{\textbackslash emph\{texte à emphaser\}}
+\item Pour qu'un chapitre ne soit pas numéroté (exemple : une introduction), on ajoute une \textbf{*} juste après \textit{\textbackslash  chapter}
+\end{itemize}
+
+\section{La structure du texte}
+\subsection{Le saut de page}
+Insérer un saut de page est assez simple. En effet, il es généré automatiquement par \LaTeX . En revanche, on peut lui indiquer nos préférences, que ce soit pour sauter une page avec \textit{\textbackslash pagebreak} (insérer sauf de page), ou au contraire pour ne pas sauter une page avec \textit{\textbackslash nopagebreak}.
+
+\subsection{Listes, imbrications et descriptions}
+\subsubsection{Les listes numérotées}
+La liste numérotée utilise l'environnement \textbf{enumerate}. Dans cet environnement, on entre la commande \textit{item} pour chaque entrée. Voici un exemple : 
+
+\begin{enumerate}
+\item premier item
+\item deuxième item
+\end{enumerate}
+
+\subsubsection{Les listes non numérotées}
+C'es la même chose pour les listes non numérotées, mais l'environnement est \textbf{itemize} au lieu de \textbf{enumerate} : 
+
+\begin{itemize}
+\item premier item
+\item deuxième item
+\end{itemize}
+
+\subsubsection{Les descriptions}
+L'environnement \textbf{description} permet d'associer une définition à un terme. En plus d'écrire \textit{item}, on ajoute entre crochets le nom du terme qu'on souhaite associer à une définition : une entrée est donc sous la forme \textit{\textbackslash item\[terme\] : définition}. Le résultat est ceci :
+
+\begin{description}
+\item[die Entdeckung] : la découverte
+\item[das Gehirn] : le cerveau
+\end{description}
+
+\subsubsection{Les imbrications}
+On peut bien évidemment inclure des listes dans des listes.
+
+\subsection{Notes et sources dans le document}
+\subsubsection{Notes de bas de page}
+Pour créer une note de \footnote{Comme ici} bas de page, on entre la commande \textit{\textbackslash footnote\{contenu } devant le mot à anoter.
+
+\subsubsection{Références}
+On veut parfois  faire référence à \label{etiquette1} quelque chose déjà mentionné dans le texte. Pour faire cela, on utilise deux commandes :
+
+\begin{itemize}
+\item On écrit \textit{\textbackslash label\{étiquette\}} à l'endroit que l'on prend comme référence.
+\item On écrit \textit{\textbackslash ref\{étiquette\}} pour obtenir la position de l'étiquette dans le document (voir exemple).
+\item On peut aussi se servir de \textit{\textbackslash pageref\{étiquette\}} pour obtenir le numéro de la page où est située l'étiquette.\\
+\end{itemize}
+
+À note que si l'étiquette n'a pas été déclarée et a été a été appelée, ou qu'elle est déclarée à plusieurs reprises, une erreur sera retournée.\\
+Voici un exemple d'utilisation d'étiquette : \\ \\
+Les points forts de \LaTeX sont [...], comme relevé précédemment (section \ref{etiquette1}, page \pageref{etiquette1}).
+
+\section{Citation de documents externes}
+\subsection{Fichier de bibliographie}
+Pour accéder à des informations concernant des \oe uvres que l'on cite, on fait le plus souvent appel à un fichier de référence, qui contient les informations des livres/articles utilisés. Voici un exemple de la rédaction d'information d'un livre : \\ \\
+\% ***** livres *****
+
+@book\{VER1875,
+
+   author="Verne, Jules",
+
+   title="Michel \{Strogoff\}",
+
+   year="1875",
+
+   publisher="Le livre de poche"
+\}
+//
+À noter qu'on crée un fichier spécial (une répertoire) où l'on dispose toutes les références bibliographique. Ce fichier est un fichier de type \texttt{.bib}, que l'on n'a pas besoin de lier avec le fichier \texttt{.tex}.
+
+\subsection{Référencer des documents}
+Il y a deux façons de citer un ouvrage :
+\begin{itemize}
+\item \textit{\textbackslash cite\{VER1875\}},  placé à côté de la citation
+\item \textit{\textbackslash nocite\{VER1875\}}, lorsqu'on ne cite pas explicitement le document externe dans le texte. À noter qu'il est préférable de placer ces \oe uvres juste avant \textit{\textbackslash backmatter}.\\ 
+\end{itemize}
+Voici un exemple de citation d'une \oe uvre :\\ 
+Ainsi, Jules Verne faisait dire à Wassili Fédor \cite{VER1875} : (bon, là ça ne marche pas).
+\\ 
+\textsc{notes :} après le \textit{\textbackslash backmatter}, on intègre deux instructions :
+
+\begin{itemize}
+\item \textit{bibligraphystyle\{plain-fr\}} pour adapter le style de citation et de répertoire à la formule française.
+\item \textit{bibliography\{nom du fichier\}} pour lier un répertoire au document. On ne met pas le type du fichier, juste son nom.
+\end{itemize}
+
+\chapter{Mise en forme du texte}
+\section{Choix de la forme}
+On peut appliquer de nombreux styles à un texte. Il en existe deux types : la forme (italique ou souligné par exemple) ou la graisse (en gras).
+
+\subsection{La forme}
+
+\begin{itemize}
+\item \textit{italique}, avec la commande \textit{\textbackslash textit\{\}} (il existe d'autres commandes)
+\item \textsl{penché}, avec la commande \textit{\textbackslash textsl\{\}}
+\item \underline{soutitrage}, avec la commande \textit{\textbackslash underline\{\}}
+\item \emph{emphase}, qu'on connait déjà très bien
+\item \oldstylenums{40}, pour les chiffres bas de casse, avec la commande \textit{\textbackslash oldstylenums\{\}}
+\item \textsc{lettres en petites capitales}, avec la commande \textit{\textbackslash textsc\{\}} (utilisées notamment pour les noms et les chiffres romains). À noter que pour avoir des noms qui ne sont pas coupés en fin de ligne, on peut utiliser la commande \textit{\textbackslash bsc\{\}}
+\end{itemize}
+
+Des cas d'utilisation pour chacun des ces styles sont précisés au chapitre 7 du cours \LaTeX sur Wikiversité.
+
+\subsection{La graisse}
+
+\begin{itemize}
+\item \textnormal{texte normal}, avec la commande \textit{\textbackslash textnormal\{\}}
+\item \textbf{graisse moyenne}, avec la commande \textit{\textbackslash textbr\{\}}
+\end{itemize}
+
+\pagebreak
+
+\section{Choix de la police et du corps}
+\subsection{Choix de la police}
+Il y a plusieurs types de police (on parle ici de types et non de polices à proprement parler) :
+
+\begin{itemize}
+\item \textrm{police à empattement}, avec la commande \textit{\textbackslash  textrm\{\}} (type par défaut, rm pour roman)
+\item \textsf{police sans empattement}, avec la commande \textit{\textbackslash textsf\{\}} (sf pour sans serif)
+\item \texttt{police machine à écrire}, avec la commande \textit{\textbackslash texttt\{\}} (tt pour teletype)
+\item \textnormal{texte normal}, avec la commande \textit{\textnormal\{\}} (fonte de corps du document) \\
+\end{itemize}
+
+\textsc{notes :} si on ne précise pas \textit{text}, on ne met pas fin à l'instruction : le texte qui suit sera aussi affecté. Comme précédemment, on peut activer ces types de différentes façons (par exemple par environnement). Enfin, habituellement, on utilise une seule police au sein d'un document.
+
+\subsection{Choix du corps}
+
+\begin{itemize}
+\item \footnotesize{texte très petit}, avec la commande \textit{\textbackslash footnotesize\{\}}
+\item \small{texte petit}, avec la commande \textit{\textbackslash small\{\}}
+\item \large{texte grand}, avec la commande \textit{\textbackslash large\{\}}
+\item \Large{texte très grand}, avec la commande \textit{\textbackslash Large\{\}}
+\end{itemize}
+
+Encore une fois, il existe plusieurs façons de changer la taille de la police, notamment avec un \textbf{environnement}. Le texte en \textit{petit} est celui utilisé par défaut.
+
+\section{Composition du texte et tabulations}
+\subsection{La composition du texte}
+
+\begin{itemize}
+\item En mettant la commande \textit{\textbackslash noindent} au début d'un paragraphe, on peut annuler l'insertion d'un alinéa
+\item Pour aligner le texte à gauche, on utilise l'environnement \textbf{flushleft}
+\item Pour aligner le texte à droite, on utilise l'environnement \textbf{flushright}
+\item Pour aligner le texte au centre, on utilise l'environnement \textbf{center}
+\end{itemize}
+
+Par ailleurs, on peut faire un retour à la ligne avec un \textit{\textbackslash \textbackslash}, et utiliser l'environnement \textbf{quote} pour créer une citation. Enfin, on utilise \textit{\textbackslash bsc\{\}} pour invoquer un rôle dans le texte d'une pièce de théâtre. Voici un exemple : 
+Si l'on considère ce passage de \emph{L'\'Ecole des femmes}~:
+
+\small
+
+\begin{center} 
+   \bsc{Chrysalde} 
+\end{center} 
+
+\begin{quote} 
+   Nous sommes ici seuls, et l'on peut, ce me semble, \\
+   Sans craindre d'être ouïs y discourir ensemble. \\
+   Voulez-vous qu'en ami je vous ouvre mon c\oe{}ur~? \\
+   Votre dessein, pour vous, me fait trembler de peur~; \\
+   Et de quelque façon que vous tourniez l'affaire, \\
+   Prendre femme est à vous un coup bien téméraire.
+\end{quote} 
+
+\normalsize
+
+\subsection{La tabulation}
+Les tabulations permettent de créer graphiquement, ce qui peut s'apparenter à des tableaux. On les utilise à l'aide de l'environnement \textbf{tabbing}.\\
+
+\begin{itemize}
+\item On utilise \textit{\textbackslash qquad} pour changer de colonne sur la première ligne (les \textsf{labels})
+\item On change de ligne avec \textit{\textbackslash \textbackslash}
+\item On utilise \textit{\textbackslash =} pour définir les taquets de tabulations (les cellules) après \textit{\textbackslash qquad}
+\item On utilise \textit{\textbackslash >} pour aller au taquet suivant
+\item Si on ne veut pas qu'une ligne s'affiche, on utilise la commande \textit{\textbackslash kill}\\
+\end{itemize}
+
+\begin{tabbing}
+Voici un exemple :\\ \\
+Quantité \qquad \= Valeur \qquad \= Total \\
+1 \> 5\> 5 \\
+4 \> 6 \> 24 \\
+\end{tabbing}
+
+\textsc{note :} on ne met rien devant le premier label (\textit{Quantité} dans l'exemple). À noter aussi qu'on ne peut pas changer la disposition d'un tel tableau : il sera toujours placé à gauche.
+
+\section{Commandes personnelles et liens avec d'autres fichiers} 
+
+On peut faire des commandes personnalisées (ici une abréviation) avec \textit{new command\{\textbackslash nom de la commande\} \{contenu affiché par la commande qui peut contenir des effets comme italique\}}.\\
+Pour importer les commandes d'un autre fichier, on peut utiliser la commande \textit{\textbackslash input\{fichier.tex\}} juste avant le début du document. Cela peut être extrêmement pratique : par exemple, plus besoin de faire une série de \textit{\textbackslash usepackage}, on les rassemble tous dans un document et tout est directement insérer dans le fichier actuel. 
+
+\chapter{Les tableaux}
+\section{Faire un tableau}
+\subsection{Commandes de bases pour créer un tableau}
+
+Pour créer un tableau, on utilise l'environnement \textbf{tabular}, sous la forme \textit{\textbackslash textit\{tabular\}\{lll\}}, où \texttt{lll} représente le nombre de colonnes (ce sont des L minuscules). Pour chaque nouvelle cellule, on insère le signe \textsf{\&} et pour chaque nouvelle ligne, le symbole \textsf{\textbackslash \textbackslash}. \\ Voici un exemple de tableau créé avec cette méthode :\\
+
+\begin{tabular}{lll}
+1.1 & 1.2 & 1.3\\
+2.1 & 2.2 & 2.3\\ \\
+\end{tabular}
+
+Il y a plusieurs façons de placer le contenu d'une case au sein d'un tableau : 
+
+\begin{itemize}
+\item On utilise "l" pour mettre le contenu d'une case à gauche
+\item On utilise "r" pour mettre le contenu à droite
+\item On utilise "c" pour mettre le contenur au centre
+\item Pour un alignement à gauche avec marge, on utlise  \textit{p\{largeur\}}; on peut par exemple mettre \texttt{3cm} à la place de \textit{largeur}.\\
+\end{itemize}
+
+\textsc{attention! :} pour faire un tableau avec des traits, il faut rajouter des traits "|" entre les \textit{l} suivant le \textit{\{tabular\}}. Voici un exemple du tableau précédent avec \textit{\textbackslash begin\{tabular\} \{ | l | l | l |\}} :
+
+\begin{tabular}{| l | l | l |}
+\hline colonne1 & colonne2 & colonne3\\
+\hline \hline
+1.1 & 1.2 & 1.3\\
+\hline
+2.1 & 2.2 & 2.3\\ 
+\hline
+\end{tabular}
+
+On utilise la commande \textit{\textbackslash hline} afin de créer une ligne horizontale. On peut en mettre deux, comme dans l'exemple, pour avoir une ligne double.
+
+\subsection{Fusionner des colonnes et des lignes}
+Pour fusionner des colonnes, on utilise la commande \textit{multicolumn\{nombre de colonnes fusionnées\}\{alignement comme celui de \textbf{tabular}\}\{texte de la fusion de colonne à la première ligne\}}. On utilise cette instruction comme  n'importe quelle entrée, sur la premère ligne de l'environnement. Exemple : \\ \\
+
+\begin{tabular}{| l | l | l |}
+\hline colonne1 & \multicolumn{2}{c|}{colonne2 et colonne3}\\
+\hline 
+1.1 & 1.2 & 1.3\\
+\hline
+2.1 & 2.2 & 2.3\\ 
+\hline 
+\end{tabular} \\ \\
+
+La méthode pour fusionner des lignes est un peu différente. On utilise la commande \textit{\textbackslash cline\{2-3\} \&} pour sélectionner les lignes \textsc{à ne pas fusionner}, ici la ligne 2 et 3. On la place entre la deuxième ligne et la troisième ligne, et on ne met pas de \textit{\textbackslash hline} avant . Voici un exemple de rendu :\\ \\
+
+\begin{tabular}{|c|c|c|}
+\hline colonne 1 & \multicolumn{2}{c|}{colonnes 2 et 3}\\
+\hline 1.1 & 1.2 & 1.3 \\
+\cline{2-3} & 2.2 & 2.3\\
+\hline 
+\end{tabular} \\ \\
+
+\subsection{Tableau flottant et positionnement}
+
+Au lieu d'avoir un tableau placé par défaut par \LaTeX à gauche, on peut créer un tableau flottant et laisser le typographe le placer au mieux selon les directives exprimées. \\
+On le place tout d'abord dans un envionnement \textbf{table\[position\]}. Il y a 4 types de positions : \\ \\
+
+\begin{itemize}
+\item \texttt{h} pour qu'il soit à côté du texte le précédent (here)
+\item \texttt{t} pour le placer en haut de la page
+\item \texttt{b} pour le placer en bas de la page
+\item \texttt{p} pour le mettre dans une page ne regroupant que des flottants (regroupement de figures et de tableaux)\\
+\end{itemize}
+
+À noter que le tableau est numéroté, ce qui permet de dresser un index des tableaux.\\ \\
+
+Si on veut donner un titre et placer une étiquette permettant de faire référence au tableau, on peut utiliser la commande \textit{\textbackslash caption\{label\{ \} titre\}}. Pour centrer le tableau sur la page, il est préférable d'utiliser la commande \textit{centering}.
+
+\pagebreak
+
+On créé l'environnement \textbf{table}, dans lequel on va placer l'environnement \textbf{tabular}. Juste avant ce dernier, on va insérer les deux commandes vues au dessus. Démonstration :
+
+\begin{table}[h]
+\caption{\label{} Tableau sans titre}
+\centering 
+\begin{tabular}{|c|c|c|}
+\\ 
+\hline colonne 1 & colonne 2 & colonne 3 \\
+\hline 1.1 & 1.2 & 1.3 \\
+\hline 2.1 & 2.2 & 2.3 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\textsc{notes :} on peut utiliser la commande \textit{\textbackslash clearpage} pour changer de page et afficher toutes les figures en attente sur celle-ci. On peut aussi utiliser la commande \textit{\textbackslash cleardoublepage} pour faire la même chose, mais sur une page impaire (utile lorsqu'on veut les figures sur le côté recto de la feuille lors d'une impression). \\
+On peut créer une table des matières des tableaux avec la commande \textit{\textbackslash listoftables}, mais aussi faire figurer cet index dans la table des matères générale avec l'extension \texttt{tocbibind}.
+
+\listoftables
+
+\chapter{Inclure des images}
+On utilise la bibliothèque \textsf{graphicx} pour pouvoir insérer des images dans le fichier. On peut alors utiliser la commande \textit{includegraphics\{nom du fichier\}}.\\
+\includegraphics{grapheHV}\\ \\
+\textsc{notes :} les formats supportés par le compilateur \texttt{pdflatex} sont le \textbf{.png, .jpg, .jpeg et .pdf}. On peut inclure des fichier sans pertes (\textbf{.svg}), on passe par une conversion en .pdf. De plus, pas besoin de préciser le type du fichier pour le lier au document (à part cas d'homonymie).
+
+\section{Chemin d'accès}
+
+Par défaut, le fichier est recherché dans le dossier où est placé le fichier \LaTeX. Cependant, on peut entrer un chemin à la place du simple nom du fichier.\\
+On peut aussi définir un répertoire (dossier) à parcourir avec la commande \textit{\textbackslash graphicspath\{\{chemindudossier/\}\}}. Par ailleurs, chaque chemin se termine par un /. 
+
+\section{Taille de l'image}
+
+L'idéal est d'avoir une image à la taille voulue dès le départ. Cependant, il existe des façons de la redimensionner, avec les commandes fournie par la bibliothèque : \\
+
+\begin{itemize}
+\item \textit{\textbackslash includegraphics[width=largeur] \{nom du fichier\} }pour fixer la largeur
+\item \textit{\textbackslash includegraphics[height=hauteur] \{nom du fichier\} }pour fixer la hauteur
+\item \textit{\textbackslash includegraphics[scale=échelle] \{nom du fichier\} }pour fixer l'échelle\\
+\end{itemize}
+
+\textsc{notes :}la hauteur et la largeur sont définies en \texttt{cm}, l'échelle n'a pas d'unité. Par rapport à la grosseur, on multiplie ou on divise l'échelle par $\sqrt{2}$ (ex : on multiplie par 1.4 pour obtenir du A3 à partir du A4, par 2 pour multiplier la largeur par deux, passant de A4 à A2).
+
+\section{Encadrement}
+
+On peut inclure l'image dans un cadre en utilisant la commande \textit{\textbackslash fbox}.
+
+\section{Figure flottante}
+
+Tout camme avec les tableaux, on peut laisser le tupographe se charger de la disposition de l'image sur la page. Pour cela, on utilise l'environnement \textbf{figure}, couplé avec [position]. Dans l'exemple suivant, on a mis la largeur de l'image à \texttt{5cm} : \\ \\
+
+\begin{figure}[h]
+\includegraphics[width=5cm]{grapheHV}
+\end{figure}
+
+Pour rappel, voici les positions différentes proposées : \\ \\
+
+\begin{itemize}
+\item \texttt{h} pour que l'image soit à côté du texte la précédent (here)
+\item \texttt{t} pour la placer en haut de la page
+\item \texttt{b} pour la placer en bas de la page
+\item \texttt{p} pour la mettre dans une page de flottants
+\end{itemize}
+
+\textsc{notes :}\LaTeX tient compte des règles internes de mise en page en priorité pour positionner une image. Pour forcer le positionnement d'une image, il faut précéder la lettre de position par un \textbf{!} (par exemple \textit{[!h]}. \\ On peut aussi insérer une légende, comme avec les tableaux. De la même façon, on peut utiliser la commande \textit{\textbackslash cleardoublepage} pour forcer un changement de page.\\ \\
+Enfin, on peut inclure la liste des images avec la commande \textit{\textbackslash listoffigures}, grâce à l'extension \texttt{tocbibind} :
+
+\begin{figure}[h]
+\caption{\label{Image1} image utilisée pour la matière Méthodes Numériques (2ème année)}
+\includegraphics{grapheHV}
+\end{figure}
+
+\listoffigures
+
+\section{dessiner avec LaTeX}
+
+\chapter{Les options de mise en forme avancées}
+\section{Césure}
+Une césure est une coupure d'un mot en deux lignes afin de respecter la justification et le gris typographique; elle est gérée automatiquement par \LaTeX. Il arrive cependant que la césure générée ne soit pas correcte (mot composé par exemple). \\\\
+Pour générer manuellement une césure, on utilise la commande \textit{hyphenation\{liste de mots\}}. \textsf{liste de mots} contient des mots séparés par des espaces. Des tirets sont placés aux emplacements des mots où l'utilisateur préférerait voir une césure si nécessaire (exemple : cé-sure).\\ \\
+Si au contraire, on souhaite qu'un mot ne soit coupé sous aucun prétexte, on utlise la commande \textit{mbox\{mot à ne pas couper\}}.
+
+\section{Lettrine (enluminure)}
+
+On commence souvent un chapitre en belle page par une lettrine : la première lettre est à gauche, avec un corps plus grand (en général sur deux lignes), et le ou les mots suivants sont en petites capitales. La bibliothèque \textsf{lettrine} permet ainsi d'utiliser la commande \textit{\textbackslash lettrine\{L\}\{es premiers mots \}}, où \textsf{L} est en grand corps et \textsf{es premiers mots} sont en petites majuscules et en petit corps. Exemple : \\ \\
+\lettrine{L}{es premiers mots} du premier paragraphe du livre. J'aime bien parler pour ne rien dire. \'Ecrire aussi, par ailleurs. \\Dans notre cas précis, suis-je en train d'écrire, ou en train de parler ? Je dirais que je parle dans ma tête, mais que je suis à l'évidence en train d'écrire, sans quoi ce texte n'aurait guère sa place sur ce document.\\ 
+
+\pagebreak
+
+À l'aide de la bibliothèque \textsf{oldgerm}, on peut écrire une lettrine dans le style gothique : La commande devient alors \textit{\textbackslash lettrine\{\textbackslash textgoth\{L\}\}\{es premiers mots\}}. Voici un exemple : \\ \\
+\lettrine{\textgoth{L}}{es premiers mots} du premier paragraphe du livre. J'aime bien parler pour ne rien dire. \'Ecrire aussi, par ailleurs. \\Dans notre cas précis, suis-je en train d'écrire, ou en train de parler ? Je dirais que je parle dans ma tête, mais que je suis à l'évidence en train d'écrire, sans quoi ce texte n'aurait guère sa place sur ce document.\\ \\
+Enfin, on peut placer une enluminure comme lettrine en se servant de la bibliothèque \textsf{yfonts}. En revanche, il n'existe pas de commande native pour générer une enluminure : il faut donc créer la commande manuellement. Plus d'informations sur cette possibilité sont disponibles sur Internet.
+
+\section{Les couleurs}
+\subsection{Colorer les caractères - couleurs disponibles}
+
+Pour mettre des caractères en couleur, on a recours à l'extension \textsf{xcolor}. On utilise alors la commande \textit{\textbackslash 	textcolor\{couleur\}\{\{texte\}}. Voici les couleurs principales proposées par la bibliothèque : 
+
+\begin{itemize}
+\item \textcolor{red}{\texttt{red}}
+\item \textcolor{green}{\texttt{green}}
+\item \textcolor{blue}{\texttt{blue}}
+\item \textcolor{cyan}{\colorbox{black}{\texttt{cyan}}}
+\item\textcolor{magenta}{\texttt{magenta}}
+\item \textcolor{yellow}{\colorbox{black}{\texttt{yellow}}}
+\item \textcolor{orange}{\texttt{orange}}
+\item \textcolor{violet}{\texttt{violet}}
+\item \textcolor{purple}{\texttt{purple}}
+\item \textcolor{brown}{\texttt{brown}}
+\item \textcolor{black}{\texttt{black}}
+\item \textcolor{darkgray}{\texttt{darkgray}}
+\item \textcolor{gray}{\texttt{darkgray}}
+\item \textcolor{lightgray}{\colorbox{black}{\texttt{lightgray}}}
+\item \textcolor{white}{\colorbox{black}{\texttt{white}}}
+\end{itemize}
+
+\subsection{Utilisation conventionnelle}
+
+Il n'y a pas d'utilisation conventionnelle des couleurs. Cependant, certains points méritent d'être abordés :
+
+\begin{itemize}
+\item \textit{la lisibilité} : un contraste insuffisant rend difficile la lecture, un contraste trop violent (comme jaune et bleu) la rend désagréable
+\item \textit{l'étalonnage des couleurs} : la couleur à l'écran n'est pas celle qui est imprimée par une imprimante à jet d'encre, elle-même différente de celle d'une imprimante laser couleur ou d'une impression offset;
+\item \textit{le rendu} si l'on imprime en noir et blanc ou si l'on photocopie
+\item \textit{le vieillissement du document} : la couleur des imprimantes à jet d'encre a tendance à pâlir avec le temps
+\item \textit{l'attention} : la couleur permet d'attirer l'attention sur un point; trop de couleur fait perdre le fil de la lecture, on peut raisonablement se limiter à quatre couleurs
+\item \textit{prendre le coût} de l'impression en compte
+\end{itemize}argeur
+
+\subsection{Cadre et couleur de fond}
+
+Avec la commande \textit{\textbackslash hrulefill}, on peut créer un filet horizontal. Avec \textit{\textbackslash fbox\{texte\}}, on peut créer un cadre. Exemple : \\ \\
+\hrulefill
+\fbox{texte dans une boîte} 
+
+Si on veut faire un cadre encore plus grand, par exemple un encadré, on va utiliser l'environnement \textbf{minipage\{largeur\}} AU SEIN de la commande \textit{fbox}. Exemple : \\ \\
+\fbox{\begin{minipage}{0.9\textwidth}
+Les premiers mots du premier paragraphe du livre. J'aime bien parler pour ne rien dire. \'Ecrire aussi, par ailleurs. \\Dans notre cas précis, suis-je en train d'écrire, ou en train de parler ? Je dirais que je parle dans ma tête, mais que je suis à l'évidence en train d'écrire, sans quoi ce texte n'aurait guère sa place sur ce document.
+\end{minipage}}\\
+
+\textsc{notes :} \textit{largeur} est exprimé dans les unités conventionnelles. On peut aussi insérer la commande \textit{\textbackslash textwidth} ou la commande \textit{\textbackslash linewidth}à la place de \textit{\textbackslash largeur}, qui représentent séparement la largeur totale du texte et la largeur de la ligne. On peut accessoirement mettre un multiplicateur devant \textit{\textbackslash textwidth}, de 0.9 dans l'exemple précédent.\\
+\textbf{minipage} est en fait un environnement qui permet de considérer une portion de texte comme une page à part.\\
+Si le texte à encadrer s'étend sur plusieurs pages, il faudra utiliser l'environnement \textbf{framed} de l'extension du même nom.\\
+Enfin, si on veut qu'une page soit surlignée avec la même couleur, on utlise la commande \textit{\textbackslash pagecolor\{couleur\}}.
+
+\subsection{Modèles de couleurs}
+
+On dispose de plusieurs façons de choisir une couleur pour la police ou le surlignage. Voici les principales catégories et sous-catégories :
+\\
+\pagebreak
+\begin{itemize}
+\item modèles de type \textbf{RGB} (rouge-vert-bleu), parmi :
+\begin{itemize}
+\item \texttt{rgb}, les trois composantes sont des nombres décimaux compris entre 0 et 1, séparés par une virgule
+\item \texttt{RGB}, les trois composantes sont des nombres décimaux compris entre 0 et 255, séparés par une virgule
+\item \texttt{HTML}, les trois composantes sont des nombres hexadécimaux entiers compris entre 00 et FF, accolés
+\end{itemize}
+\item modèle \textbf{cyan-magenta-jaune-noir} : \texttt{cmyk}, les quatres composantes sont des nombres décimaux compris entre 0 et 1 , séparés par une vigule
+\item modèle \textbf{teinte-saturation-luminosité} (TSL) : \texttt{hsb}, les trois composantes sont des nombres décimaux compris entre 0 et 1 (la teinte est donc l'angle en degré divisé par360), séparés par une virgule
+\item modèle \textbf{nuances de gris} : \texttt{gray}, avec un nombre décimal compris entre 0 (noir) et 1 (blanc)\\
+\end{itemize}
+
+Une commande pour utiliser une couleur s'écrit maintenant sous la forme\textit[{\textbackslash pagecolor[modèle]\{couleur\}}. Par exemple, pour écrire en vert olive,  on peut utiliser les modèles de ces façons : \\ \\
+
+\begin{itemize}
+\item \textcolor[rgb]{0.5, 0.5, 0}{\texttt{\{0.5, 0.5, 0\} avec le modèle rgb}}
+\item \textcolor[RGB]{128, 128, 0}{\texttt{\{128, 128, 0\} avec le modèle RGB}}
+\item \textcolor[HTML]{808000}{\texttt{\{808000\} avec le modèle HTML}}
+\item \textcolor[hsb]{0.17, 1, 0.5}{\texttt{\{0.17, 1, 0.5\} avec le modèle hsb}}
+\item \textcolor[cmyk]{0, 0.17, 0.67, 0.33}{\texttt{\{0, 0.17, 0.67, 0.33\} avec le modèle cmyk}} \\
+\item \textcolor[gray]{0.3}{\texttt{\{0.3\} texte gris avec le modèle gray}}\\ 
+\end{itemize}
+
+Par ailleurs, si on veut définir une couleur, qu'on peut réutiliser plus tard sans passer par un modèle, on utilise la commande \\ \textit{\textbackslash definecolor\{nom de la couleur\}\{modèle\}\{couleur selon le modèle\}}.
+
+\section{Interligne}
+
+En utilisant la bibliothèque \texttt{setspace} et l'environnement \textbf{spacing\{facteur\}}, on peut changer la taille de l'interligne d'un texte, selon le facteur choisi. Voici un exemple avec un facteur 1.2 :  \\ 
+
+\begin{spacing}{1.2}
+Les premiers mots du premier paragraphe du livre. J'aime bien parler pour ne rien dire. \'Ecrire aussi, par ailleurs. \\Dans notre cas précis, suis-je en train d'écrire, ou en train de parler ? Je dirais que je parle dans ma tête, mais que je suis à l'évidence en train d'écrire, sans quoi ce texte n'aurait guère sa place sur ce document.\\ 
+\end{spacing}
+
+On remarque que les lignes sont plus espacées entre elles qu'auparavant.
+
+\textsc{notes :} à la place d'entrer un chiffre pour \textit{facteur}, on peut entrer les commandes \textit{\textbackslash onehalfspacing} et \textit{\textbackslash doublespacing}. On peut aussi utiliser les environnements \textbf{singlespace}, \textbf{onehafspace} et \textbf{doublespace}.
+\\
+\subsection{\'Ecrire en colonne\\}
+
+Pour que tout le document soit écrit selon deux colonnes, on ajoute \texttt{twocolumn} après \texttt{a4paper} lors de la déclaration du document. \\ \\
+On peut aussi changer la disposition d'une page à l'autre avec les commandes \textit{\textbackslash twocolumn} et \textit{\textbackslash onecolumn}. En écrivant ces commandes sous la forme \textit{\textbackslash twocolumn[\textbackslash chapter\{titre du chapitre\}]}, on peut faire en sorte que l'élement entre crochets ne soit pas concerné par le changement de disposition.\\
+Si on ajoute un \texttt{*} à la fin de la commande de déclaration d'un élément flottant (ex : \textit{\textbackslash table*}), celui-ci sera placé en fonction de la page et non de la mise en forme.\\ \\
+Enfin, si on veut avoir plus de deux colonnes dans une page, on utilise l'environnement \textbf{multicols\{nombre de colonnes\}}. On peut forcer le changement de colonne avec la commande \textit{\textbackslash columnbreak}.\\ \\
+\textsc{notes :} La présentation en multicolonne est adapté aux corps de petite taille (petite taille de texte), donc aux documents compacts : cela permet de limiter le nombre de caractères à lire avant de revenir à la ligne. Cependant, l'insertion d'une illustration peut poser un problème de continuité de lecture.
+\\
+\subsection{Travailler avec plusieurs langues\\}
+Si on travaille dans un document en utilisant plusieurs langues, on peut faire varier la typographie utilisée selon la langue du passage voulu. Pour cela, on ajoute les langues voulue lors de la déclaration de la bibilothèque \texttt{babel}, où la dernière langue entrée est la langue par défaut. Pour changer de langue, dans le document, on utilise la commande \textit{\textbackslash selectlanguage\{langue choisie\}}. Voici un exemple : \\ \\
+
+\selectlanguage{english}
+I write in english, hehe\textbackslash je parle en anglais, héhé.
+
+\selectlanguage{french}
+I write in english, hehe\textbackslash je parle en anglais, héhé. \\ 
+\section{Ajout d'un sommaire\\}	
+Dans la typographie française, la table des matières est placée à la fin de l'ouvrage. On fait donc appel à un sommaire pour obtenir les titres de chapitres au début du document. Pour cela, on utilise la bibliothèque \texttt{shorttoc} avec le paramètre \texttt{[tight]}. \\\\
+Pour générer un sommaire, on entre la commande \textit{\textbackslash shorttoc\{nom de la table\}\{profondeur\}}. \textit{profondeur} est un chiffre représentant le niveau de détail (voir le tableau de l'ordre de la structure d'un document).\\ \\
+
+\chapter{\'Ecrire des mathématiques en LaTeX}
+\section{Formules en ligne et formules centrées}
+
+On distingue 3 cas : 
+
+\begin{itemize}
+\item les formules \textsf{en ligne} : les symboles mathématiques sont mêlés au texte : une telle formule commence par un signe dollar \textsf{\$} et se termine par un dollar (ou commence par un \textsf{\textbackslash} et finit par \textsf{\textbackslash}) 
+\item les formules \textsf{centrées} : elles sont détachées du reste du texte. Une telle formule commence par \textsf{\textbackslash [} et \textsf{\textbackslash [}
+\item les formules \textsf{centrées numérotées}: elles sont comme les formules centrées simples, mais \LaTeX applique une numérotation automatique. On utilise pour cela l'environnement \textbf{equation}, et y placer une étiquette pour y faire référence plus tard.
+\end{itemize}
+
+Voici un exemple de l'utilisation de formules en lignes et centrées : \\ \\
+La fontion $f$ est définie par 
+\[ f(x) = x-1 \].
+On a alors 
+
+\begin{equation}
+f(x) = 0 \iff x=1
+\end{equation}\\
+
+ Ici, \textit{f} est écrit comme une formule en ligne, \textit{f(x) = x-1} est écrit comme formule centrée et \textit{x = 1} est une formule centrée numérotée, ce qui explique la présence d'une annotation à sa droite.\\ \\
+\textsc{notes :} \textsf{\$ ... \$} correspond à l'environnement \texttt{math} et \textsf{\textbackslash [ ... \textbackslash ]} à l'environnement \texttt{displaymath}. Cependant, si \texttt{ansmath} est chargé alors \textsf{\textbackslash [ ... \textbackslash ]} est associé à l'environnement  \textbf{equation}, similaire à \texttt{displaymath}. Par ailleurs, sous \LaTeX, il vaut mieux utiliser \textsf{\textbackslash ( ... \textbackslash )} au lieu de \textsf{\$ ... \$} et \textsf{\textbackslash [ ... \textbackslash ]} à la place de \textsf{\$\$ ... \$\$}.
+
+\section{Fonctions}
+
+Là où les variables sont écrites en italiques, les fonctions sont écrites en romain
+
+\subsection{Fonctions principales}
+
+Les fonctions les plus courantes possèdent leur propre instruction, qui provoque leur affichage en roman. On a par exemple : 
+
+\begin{itemize}
+\item Les fonctions trigonométriques : 
+\begin{itemize}
+\item \textit{\textbackslash sin, \textbackslash cos, \textbackslash tant, \textbackslash cot} 
+\item \textit{\textbackslash arcsin, \textbackslash arcssin, \textbackslash arctan}
+\item \textit{\textbackslash sinh, \textbackslash cosh, \textbackslash tanh, \textbackslash coth}
+\end{itemize}
+\item \textit{\textbackslash ln, \textbackslash log, \textbackslash exp}
+\item \textit{\textbackslash max, \textbackslash min, \textbackslash sup, \textbackslash inf, \textbackslash lim}
+\item \textit{\textbackslash ker, \textbackslash deg}
+\item \textit{\textbackslash mod, \textbackslash bmod} (sans tabulation), \textit{\textbackslash pmod} (avec parenthèses), \textit{\textbackslash pod} (sans "mod" mais avec des parenthèses)
+\end{itemize}
+
+\subsection{Créer une fonction non définie}
+
+Pour utiliser une fonction non définie, il faut utiliser l'extension \texttt{amsmath} et déclarer la fonction dans le préambule avec \textit{\textbackslash DeclareMathOperator\{\textbackslash commande\}\{texte\}}, où \textit{\textbackslash commande} est le nom de la commande et \textit{texte} est le texte qui sera affiché en romain.
+
+\section{Les polices}
+
+Si l'on veut mettre du texte normal au sein d'une équation, on utilise la commande \textit{\textbackslash text\{texte\}} : on peut alors utiliser toutes les fonctionnalités habituelles syntaxiques de \LaTeX. \\ 
+Si l'on veut mettre une lettre ou quelques lettres en romain, on utilise \textit{\textbackslash mathrm\{texte\}}. De manière générale, les variables et les grandeurs physiques sont en italiques alors que les constantes "mathématiques" sont en romain. On peut noter en particulier : \\
+
+\begin{itemize}
+\item la \textit{constante d'Euler} \texttt{e}, \textit{l'imaginaire} \texttt{i} et la constante \texttt{pi} s'écrivent en romain, par opposition à \textit{l(excentricité} \texttt{e}, \textit{l'inclinaison} \texttt{i} ou encore la \textit{parallaxe} \texttt{pi}, qui eux se notent en italique.
+\item les\textit{constantes de physique}, en dépit de leur nature de constante, se notent en \textbf{italique}, y compris quand elles sont utilisées comme unité : la charge électrique élémentaire \textit{e} (par opposition à l'électron e\uppercase{-} et au positron e\uppercase{+}, mais aussi à la constante d'Euler, tous en romain), la constante de gravité \textit{G}, la célérité de la lumière dans le vide \textit{c} (ou c\lowercase{0}, le 0 étant en romain) ... \\
+\end{itemize}
+
+Les variables minuscules sont toujours en italique, mais en typographie française, on a tendance à noter les variables capitales en romain. Certaines polices ont une option permettant d'éviter d'avoir recours à \textit{\textbackslash mathrm} pour cela; on peut entre autres utliser la bibliothèque \texttt{\textbackslash usepackage[upright]\{fourier\}}.\\
+Pour le gras romain, on utilise \textit{\textbackslash mathbf\{texte\}}, \textit{\textbackslash textsf\{texte\}} pour une police sans empattement et \textit{\textbackslash mathtt\{texte\}} pour une police à chasse fixe. \\ \\
+Pour les noms d'ensembles en lettres ajourées, on utilise la fonction \textit{\textbackslash mathbb} de l'extension \texttt{amsfont}, par exemple \$ \textbackslash mathbb\{N\} \$ pour $\mathbb{N}$. \\ 
+
+\textsc{N.B} : on peut utiliser \textit{\textbackslash mathcal\{texte\}} pour les lettres "calligraphiques", par exemple \textit{\$ \textbackslash mathcal\{LF\} \$} pour $\mathcal{LF}$.\\
+La commande \textit{\textbackslash mathit\{texte\}} met le texte en italique, en considérant tous les caractères comme une seule variable, ici de 5 lettres, et non comme des caractères séparés.
+
+\subsection{Lettres grecques}
+
+Pour utiliser les lettres grecques, il suffit de taper leur nom en caractères latin, précédé par une contre-oblique.\\
+
+\begin{itemize}
+\item \textit{\textbackslash alpha} donne \texttt{$\alpha$}
+\item \textit{\textbackslash chi} donne \texttt{$\chi$}
+\item \textit{\textbackslash omega} donne \texttt{$\omega$}
+\item \textit{\textbackslash Omega} donne \texttt{$\Omega$}\\
+\end{itemize}
+
+\textsc{notes :} on ne peut utiliser ces instructions seulement entre \$, en dehors, cela ne marchera pas.\\ 
+
+Certaines lettres possèdent aussi des variantes :\\
+
+\begin{itemize}
+\item \textit{\textbackslash epsilon} donne \texttt{$ \epsilon$}, \textit{\textbackslash varepsilon} donne \texttt{$\varepsilon$}
+\item \textit{\textbackslash theta} donne \texttt{$ \theta$}, \textit{\textbackslash vartheta} donne \texttt{$\vartheta$}
+\item \textit{\textbackslash pi} donne \texttt{$\pi$}, \textit{\textbackslash varpi} donne \texttt{$ \varpi$}
+\item \textit{\textbackslash rho} donne \texttt{$\rho$}, \textit{\textbackslash varrho} donne \texttt{$\varrho$}
+\item \textit{\textbackslash sigma} donne \texttt{$\sigma$}, \textit{\textbackslash varsigma} donne \texttt{$\varsigma$} 
+\item \textit{\textbackslash phi} donne \texttt{$\phi$}, \textit{\textbackslash varphi} donne \texttt{$\varphi$}
+\end{itemize}
+
+\subsection{Exposants et indices}
+
+Pour mettre du texte en \textit{exposant}, on place le texte dans un bloc et on le fait précéder d'un chapeau \texttt{\^}. Idem pour mettre un texte en \textit{indice}, mais on remplace le \texttt{\^} par un tiret de surlignement \texttt{\_}. \\ \\
+Par exemple, \$ u\_n = 2\^ n \$ donne : $ u_n = 2n$. \\ \\
+On peut aussi placer un objet au dessus ou en dessous d'un autre : \\
+
+\begin{tabular}{|c|}
+\hline \\
+\begin{tabular}{|c||c|}
+\hline
+Instruction & Résultat \\
+\hline \hline 
+\\ \texttt{\textbackslash overset\{a\}\{X\}} & $ \overset{a}{X}$ \\ \\
+\hline \\
+\texttt{\textbackslash underset\{b\{\}\{X\}} & $ \underset{b}{X} $ \\ \\
+\hline \\
+\texttt{\textbackslash overset\{a\}\{\textbackslash underset\{b\}\{X\}} & $ \overset{a}{\underset{b}{X}} $\\ \\
+\hline
+\end{tabular}\\ \\
+\hline 
+\end{tabular}\\ \\
+
+\textsc{notes :} pour faire l'effet de tableau encadré, on encapsule un tableau dans un autre.
+
+\subsection{Espaces\\}
+
+Le mode mathématiques de \LaTeX ne prend pas en compte les espaces. Si l'on veut les introduire, il faut les indiquer explicitement : \\
+
+\begin{itemize}
+\item \textbackslash  : espace normal (justifiante)
+\item \textbackslash , : espace fine 
+\item \textbackslash : : espace moyenne
+\item \textbackslash ; : grande espace
+\item \textbackslash ! : petite espace négative \\ \\
+\end{itemize}
+
+\textsc{notes :} la petite espace négative permet de rapprocher des objets.
+
+\section{Les fractions et raçines\\}
+
+Les fractions s'obtiennent avec la commande \textit{\textbackslash frac\{numérateur\}\{dénominateur\}} :  \\ 
+ $\frac{numérateur}{dénominateur} $ \\
+
+La raçine carrée s'obtient avec la commande \textit{\textbackslash sqrt\{radicante\}} : 
+$\sqrt{radicante}$ \\
+La raçine n-ième s'obtient avec la commande \textit{\textbackslash sqrt[n]\{radicante\}} : 
+$\sqrt[n]{radicante} $\\
+
+Voici un exemple rassemblant les 2 outils : \\ \\
+$ x_{1,2} = \frac{ -b \pm \sqrt{\Delta}}{2a} $ \\
+
+\section{Les accents}
+
+Voici les commandes à entrer afin d'obtenir les accents les plus classiques : 
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline \\
+\textbf{Instruction} & \textbf{Résultat} \\ \\
+\hline \hline \\
+\textit{\textbackslash acute\{a\}} & $\acute{a}$ \ \\ \\
+\hline \\
+\textit{ a \', a\^  \textbackslash prime} & $ a', a^\prime $  \\ \\
+\hline \\
+\textit{\textbackslash grave\{a\}} & $ \grave{a} $ \\ \\
+\hline \\
+\textit{\textbackslash hat\{a\}} & $\hat{a} $ \\ \\
+\hline \\
+\textit{\textbackslash widehat\{abc\}} & $\widehat{abc}$ \\ \\
+\hline \\
+\textit{\textbackslash tilde\{a\}} & $ \tilde{a} $ \\ \\
+\hline
+\end{tabular}
+\end{center}
+
+\textsc{\\notes :} pour centrer un tableau ou n'importe quel élément/texte, on a utiliser l'environnement \textbf{center}.\\
+
+
+Il existe aussi des accents spécifiques pour les mathématiques et la physique : \\ \\
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline \\
+\textbf{Instruction} & \textbf{Résultat} \\ \\
+\hline \hline \\
+\textit{\textbackslash vec\{a\}} & $ \vec{a} $ \\ \\
+\hline \\
+\textit{\textbackslash overrightarrow\{AB\}} & $ \overrightarrow{AB} $ \\ \\
+\hline  \\
+\textit{\textbackslash dot\{a\}, \textbackslash ddot\{a\}} & $  \dot{a}, \ddot{a} $ \\ \\
+\hline \\
+\textit{\textbackslash bar\{a\}} & $ \bar{a} $ \\ \\
+\hline \\
+\textit{\textbackslash overline\{AB\}} & $ \overline{AB} $ \\ \\
+\hline \\
+\textit{\textbackslash underline\{AB\}} & $ \underline{AB} $ \\ \\
+\hline \\
+\textit{\textbackslash overbrace\{1, \textbackslash ldots, n\}} & $ \overbrace{1, \ldots, n} $ \\ \\
+\hline \\
+\textit{\textbackslash underbrace\{1, \textbackslash ldots, n\}} & $ \underbrace{1, \ldots, n} $ \\ \\
+\hline
+\end{tabular}
+\end{center}
+
+\textsc{notes :} les instructions \textit{\textbackslash imath} et \textit{\textbackslash jmath} donnent un \texttt{i} et un \texttt{j} sans point, ce qui permet d'éviter une superposition avec un accent (trait, flèche \ldots).	
+
+\section{Les symboles \\}
+
+Pour les opérateurs arithmétiques, on peut utiliser \texttt{+, -} et \texttt{\textbackslash}. Nous avons vu précédemment comment écrire une fraction; on peut aussi utiliser la commande \textit{\textbackslash div} pour avoir "$\div$". 
+
+\pagebreak
+
+\begin{table}[h]
+\caption{\label{}Opérateurs arithmétiques}
+\textit{\\}
+\centering
+\begin{tabular}{|c|c|}
+\hline \\
+\textbf{Instruction} & \textbf{Symbole} \\ \\
+\hline \hline \\
+\textit{\textbackslash times} & $\times $ \\ \\
+\hline \\
+\textit{\textbackslash cdot} & $ \cdot $ \\ \\
+\hline \\
+\textit{\textbackslash frac\{a\}\{b\}} & $ \frac{a}{b} $ \\ \\
+\hline \\
+\textit{\textbackslash div} & $ \div $ \\ \\
+\hline \\
+\textit{\textbackslash nmid} & oh \\ \\
+\hline \\
+\textit{\textbackslash Im, \textbackslash Re} & $ \Im , \Re $ \\ \\
+\hline \\
+\textit{\textbackslash otimes} & $ \otimes $ \\ \\
+\hline 
+\end{tabular}
+\end{table}
+
+\pagebreak
+\pagebreak
+
+\begin{table}[h]
+\caption{{Opérateurs logiques}}
+\textit{\\}
+\centering
+\begin{tabular}{|c|c|}
+\hline \hline \\
+\textbf{Instruction} & \textbf{Symbole} \\ \\
+\hline \hline \\
+\textit{\textbackslash lnot} & $ \lnot $ \\ \\ 
+\hline \\
+\textit{\textbackslash land} & $\land$ \\ \\
+\hline \\
+\textit{\textbackslash lor} & $\lor$ \\ \\
+\hline
+\end{tabular} 
+\end{table}
+
+\begin{table}[h]
+\caption{{Ensembles}}
+\textit{\\}
+\centering
+\begin{tabular}{|c|c|}
+\hline \\
+\textbf{Instruction} & \textbf{Symbole} \\ \\
+\hline \hline \\
+\textit{\textbackslash varnothing} & $\varnothing $ \\ \\
+\hline \\
+\textit{\textbackslash emptyset} & $ \emptyset $ \\ \\
+\hline \\
+\textit{\textbackslash cap} & $ \cap $ \\ \\
+\hline \\
+\textit{\textbackslash cup} & $ \cup $ \\ \\
+\hline \\
+\textit{\textbackslash subset} & $ \subset $ \\ \\
+\hline \\
+\textit{\textbackslash in} & $ \in$ \\ \\
+\hline \\
+\textit{\textbackslash subseteq} & $ \subseteq$ \\ \\
+\hline \\
+\textit{\textbackslash mathbb\{ N\}} & $ \mathbb{N} $  \\ \\
+\hline
+\end{tabular}
+\end{table}
+
+\pagebreak
+\pagebreak
+
+\begin{table}[t]
+\caption{{Quantificateurs}}
+\textit{\\}
+\centering
+\begin{tabular}{|c|c|}
+\hline \hline  \\
+\textbf{Instruction} & \textbf{Symbole} \\ \\
+\hline \hline \\
+\textit{\textbackslash forall} & $ \forall $ \\ \\
+\hline \\
+\textit{\textbackslash exists} & $ \exists $ \\ \\
+\hline
+\end{tabular}
+\end{table}
+
+\textit{\\}
+\pagebreak
+
+\textsc{notes :} beaucoup de symboles possèdent une négation associée, qu'on peut afficher avec la commande \textit{\textbackslash not\textbackslash operateurAssocié}. Dans certains cas, cette opérateur existe déjà; on préfèrera cette dernère solution à la première : par exemple on écrira le symbole $ \notin $ \textit{\textbackslash notin}. 
+
+\begin{table}[h]
+\caption{Opérateurs logiques}
+\textit{\\}
+\centering
+\begin{tabular}{|c|c|}
+\hline \hline \\
+\textbf{Instructions} & \textbf{Symbole} \\ \\
+\hline \hline \\
+\textit{\textbackslash lnot} & $ \lnot $ \\ \\
+\hline \\
+\textit{\textbackslash land} & $ \land $ \\ \\
+\hline \\
+\textit{\textbackslash lor} & $ \lor $ \\ \\
+\hline 
+\end{tabular}
+\end{table}
+
+\textit{\\}
+\pagebreak
+
+\begin{table}[t]
+\caption{Géométrie} 
+\textit{\\}
+\centering
+\begin{tabular}{|c|c|}
+\hline \hline \\
+\textbf{Instructions} & \textbf{Symbole} \\ \\
+\hline \hline \\
+\textit{\textbackslash wedge} & $ \wedge $ \\ \\
+\hline \\
+\textit{\textbackslash angle} & $ \angle $ \\ \\
+\hline \\
+\textit{\textbackslash measuredangle} & $ \measuredangle $ \\ \\
+\hline \\
+\textit{\textbackslash sphericalangle } & $ \sphericalangle $  \\ \\
+\hline \\
+\textit{\textbackslash perp} & $ \perp $ \\ \\
+\hline
+\end{tabular}
+\end{table}
+
+\textit{\\}
+\pagebreak
+
+\begin{table}[h]
+\caption{Dérivation}
+\textit{\\}
+\centering
+\begin{tabular}{|c|c|}
+\hline \hline \\
+\textbf{Instructions} & \textbf{Symbole} \\ \\
+\hline \hline \\
+\textit{\textbackslash to, \textbackslash mapsto} & $ \to , \mapsto $ \\ \\
+\hline \\ 
+\textit{\textbackslash leftarrow, \textbackslash longleftarrow} & $ \leftarrow , \longleftarrow $ \\ \\
+\hline \\
+\textit{\textbackslash rightarrow, \textbackslash longrightarrow} & $ \rightarrow, \longrightarrow $ \\ \\
+\hline \\
+\textit{\textbackslash leftrightarrow, \textbackslash longleftrightarrow} & $ \leftrightarrow, \longleftrightarrow $ \\ \\
+\hline \\
+\textit{\textbackslash xrightarrow[a]\{b\}, \textbackslash xlefttarrow[a]\{b\}} & $ \xrightarrow[a]{b}, \xleftarrow[a]{b} $\\ \\
+\hline \\
+\textit{\textbackslash overrightarrow\{AB\}} & $ \overrightarrow{AB} $ \\ \\
+\hline \\
+\textit{\textbackslash leftrightarrows, \textbackslash leftrightharpoons} & $ \leftrightarrows, \leftrightharpoons $ \\ \\
+\hline \\
+\textit{\textbackslash uparrow, \textbackslash downarrow, \textbackslash updownarrow} & $ \uparrow, \downarrow, \updownarrow $ \\ \\
+\hline \\
+\textit{\textbackslash nwarrow, \textbackslash nearrow, \textbackslash searrow, \textbackslash swarrow} & $ \nwarrow, \nearrow \searrow, \swarrow $ \\ \\
+\hline \\
+\end{tabular} 
+\end{table}
+
+\textit{\\}
+
+\textsc{notes :} les paramètres \textit{\textbackslash xrightarrow[a]\{b\}, \textbackslash xlefttarrow[a]\{b\}} nécessitent les extensions \texttt{amsmath} et \texttt{amssymb} pour fonctionner. À noter que le paramètre a est par ailleurs facultatif. Enfin, la plupart du temps, mettre une majuscule sur l'instruction d'une flèche, on obtiendra en général une flèche double.
+
+\textit{\\}
+\pagebreak
+
+\begin{table}[h]
+\caption{\label{}Divers}
+\textit{\\}
+\centering
+\begin{tabular}{|c|c|}
+\hline \hline \\
+\textbf{Instructions} & \textbf{Symbole} \\ \\
+\hline \hline \\
+\textit{\textbackslash infty} & $ \infty $ \\ \\
+\hline \\
+\textit{\textbackslash hbar} & $ \hbar $ \\ \\
+\hline \\
+\textit{\textbackslash circ} & $ \circ $ \\ \\
+\hline \\
+\textit{\textbackslash bullet} & $ \bullet $ \\ \\
+\hline \\
+\textit{\textbackslash cdots, \textbackslash ldots} &  $ \cdots , \ldots $ \\ \\
+\hline 
+\end{tabular} 
+\end{table} 
+
+
+\textsf{exemples de formules utilisants les symboles} \\
+
+\section{Remarques très importantes}
+
+\begin{itemize}
+\item pour forcer un saut de ligne (dans le cas où une erreur apparait habituellement), il suffit de mettre \textbackslash \textbackslash dans une commande de type \textit{\textbackslash textit}.
+\item pour forcer un saut de page ou un retour à la page, on utilise la méthode précédante, suivie d'un \textit{\textbackslash pagebreak}.
+\end{itemize}
+
+\backmatter
+
+\bibliographystyle{plain-fr}
+\bibliography{mabiblio}
+
+\tableofcontents
+
+\end{document}

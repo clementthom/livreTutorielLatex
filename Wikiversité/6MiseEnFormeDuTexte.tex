@@ -3,14 +3,20 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{graphicx}
-\usepackage[english, french]{babel}
+\usepackage[english, french]{babel} %babel est à placer en dernier
 \usepackage{cite} %pour faire des citations
-\usepackage{amsmath} %pour afficher des objets mathématiques
+\usepackage{amsmath, amsfonts, amssymb} %pour afficher des objets mathématiques et les symboles supérieur/ égal à (et autres caractères mathématiques particuliers)
 \usepackage{lettrine} %pour gérer les lettrines
 \usepackage{oldgerm} %pour afficher des lettrines de style gothique
 \usepackage{xcolor} %pour colorer le texte
 \usepackage{setspace} %pour changer la taille de l'interlignage
 \usepackage[tight]{shorttoc} %pour générer un sommaire
+\usepackage{textgreek} %pour afficher des caractères grecques
+%\usepackage[upright]{fourier}% pour avoir les variables mathématiques capitales en romain
+\usepackage{amsfonts} %pour afficher les caractères correspondants aux ensembles mathématiques
+\usepackage{array} %débloque des options supplémentaires pour les tableaux
+\usepackage{numprint} %permet de mettre en forme les grands nombres
+\usepackage[squaren, Gray]{SIunits} %permet d'utiliser les unités physiques
 
 
 \begin{document}
@@ -407,6 +413,7 @@ On créé l'environnement \textbf{table}, dans lequel on va placer l'environneme
 \end{tabular}
 \end{table}
 
+
 \textsc{notes :} on peut utiliser la commande \textit{\textbackslash clearpage} pour changer de page et afficher toutes les figures en attente sur celle-ci. On peut aussi utiliser la commande \textit{\textbackslash cleardoublepage} pour faire la même chose, mais sur une page impaire (utile lorsqu'on veut les figures sur le côté recto de la feuille lors d'une impression). \\
 On peut créer une table des matières des tableaux avec la commande \textit{\textbackslash listoftables}, mais aussi faire figurer cet index dans la table des matères générale avec l'extension \texttt{tocbibind}.
 
@@ -597,9 +604,6 @@ I write in english, hehe\textbackslash je parle en anglais, héhé. \\
 \section{Ajout d'un sommaire\\}	
 Dans la typographie française, la table des matières est placée à la fin de l'ouvrage. On fait donc appel à un sommaire pour obtenir les titres de chapitres au début du document. Pour cela, on utilise la bibliothèque \texttt{shorttoc} avec le paramètre \texttt{[tight]}. \\\\
 Pour générer un sommaire, on entre la commande \textit{\textbackslash shorttoc\{nom de la table\}\{profondeur\}}. \textit{profondeur} est un chiffre représentant le niveau de détail (voir le tableau de l'ordre de la structure d'un document).\\ \\
-
-\chapter{\'Ecrire des mathématiques en LaTeX}
-
 
 
 \backmatter
